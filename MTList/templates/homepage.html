@@ -1,0 +1,177 @@
+<html>
+<header>
+    <title>ECT Application</title>
+<style>
+
+    body {
+        background-color: #F3EBF6;
+        font-family: 'Ubuntu', sans-serif;
+    }
+    .top {
+        margin-top: 250px;
+        color: #8C55AA;
+    }
+    .main {
+        background-color: #FFFFFF;
+        width: 400px;
+        height: 400px;
+        margin: 7em auto;
+        border-radius: 1.5em;
+        box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+    }
+    
+    .sign {
+        padding-top: 40px;
+        color: #8C55AA;
+        font-family: 'Ubuntu', sans-serif;
+        font-weight: bold;
+        font-size: 23px;
+    }
+    
+    .fname {
+    width: 76%;
+    color: rgb(38, 50, 56);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    background: rgba(136, 126, 126, 0.04);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    box-sizing: border-box;
+    border: 2px solid rgba(0, 0, 0, 0.02);
+    margin-bottom: 50px;
+    margin-left: 46px;
+    text-align: center;
+    margin-bottom: 27px;
+    font-family: 'Ubuntu', sans-serif;
+    }
+    
+    form.form1 {
+        padding-top: 40px;
+    }
+    
+    .depname {
+    width: 76%;
+    color: rgb(38, 50, 56);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    background: rgba(136, 126, 126, 0.04);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    box-sizing: border-box;
+    border: 2px solid rgba(0, 0, 0, 0.02);
+    margin-bottom: 50px;
+    margin-left: 46px;
+    text-align: center;
+    margin-bottom: 27px;
+    font-family: 'Ubuntu', sans-serif;
+    }
+    
+   
+    .user:focus, .pass:focus {
+        border: 2px solid rgba(0, 0, 0, 0.18) !important;
+        
+    }
+    
+    .submit {
+      cursor: pointer;
+        border-radius: 5em;
+        color: #fff;
+        background: linear-gradient(to right, #9C27B0, #E040FB);
+        border: 0;
+        padding-left: 40px;
+        padding-right: 40px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        font-family: 'Ubuntu', sans-serif;
+        margin-left: 35%;
+        font-size: 13px;
+        box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+    }
+    
+    button {
+        text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
+        color: #E1BEE7;
+        text-decoration: none
+    }
+
+    table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+    
+    @media (max-width: 600px) {
+        .main {
+            border-radius: 0px;
+        }
+</style>
+</header>
+<body>
+
+    <h1 class="top" align="center">Welcome to ECT Application!</h1>
+    <p align="center">"If you listen to your body when it whispers, you won’t have to hear it scream.<br>
+        Create healthy habits, not restrictions.</p>
+  <div class="main">
+  <form 
+    method="POST" 
+    action="/MTList/new">
+
+    <p class="sign" 
+    align="center">Get Tested Now!</p>
+
+      <input 
+      id="fname" 
+      class="fname"
+      name="fname" 
+      type="text" 
+      align="center" 
+      placeholder="Full Name">
+
+      <input 
+      id="depname" 
+      class="depname" 
+      name="depname" 
+      type="text" 
+      align="center" 
+      placeholder="Department">
+
+      <button 
+      type="submit" 
+      class="submit" 
+      id="btnContinue" 
+      name="btnContinue">Continue</button> <br>
+                
+    </div>
+     {% csrf_token %}
+ </form>
+  {% for companye in companyprofile_ %}
+
+    <table id="list_Table" name="tr">
+        <tr>
+        
+        <td>{{ companye.ifname }}</td>
+      
+          <td>{{ companye.mdepname}}</td>
+    
+        
+        </tr>
+         {% endfor %}
+    </table>
+</body>
+</html>

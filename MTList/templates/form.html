@@ -1,0 +1,139 @@
+<html>
+<head>
+  <title>ECT Application</title>
+</head>
+<style>
+    body {
+        background-color: #F3EBF6;
+        font-family: 'Ubuntu', sans-serif;
+    }
+    .top {
+        margin-top: 100px;
+        color: #8C55AA;
+    }
+    .box {
+        width:  955px;
+        height: 100%;
+        margin: 7em auto;
+        border-radius: .5em;
+  
+    }
+    .consent {
+        padding-top: 40px;
+        color: #8C55AA;
+        font-weight: bold;
+        font-size: 23px;
+    }
+
+    .iGet{
+    
+    background-color: #FFFFFF;
+    width: 90%;
+    color: rgb(38, 50, 56);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding: 10px 5px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    box-sizing: border-box;
+    border: 2px solid rgba(0, 0, 0, .10);
+    margin-bottom: 50px;
+    margin-left: 50px;
+    margin-right: 40px;
+    text-align: center;
+    margin-bottom: 27px;
+    font-family: 'Ubuntu', sans-serif;
+        }
+
+    .marg{
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    }
+    .accept{
+      text-indent: 50px;
+}
+
+</style>
+
+<body>
+      <h1 class="top" align="center" >Welcome to ECT Application! </h1>
+      <p align="center"> "As we continue to serve and provide service to all our customers, our main goal is to make every employee fit and healthy on working. <br> We provide support and help everyones need to make sure we are all safe and CoVid free"
+
+  <div class="box"> 
+
+  <form class="iGet" 
+  text-align="left" 
+  method="POST" 
+  action="/MTList/{{ companyprofile.id }}/add_item">
+
+      <table id="ECT" name="tr">
+      <p class="consent" 
+      align="center"> COVID-19 Test Form</p><br><br> 
+
+      <label for="kaddress">Home Address</label>
+      <input 
+      class="iGet" 
+      type="text" 
+      id="kaddress" 
+      name="kaddress" 
+      placeholder="Complete Address"><br>
+    
+      <label for="Reason">Reason of request</label>
+      <input class="iGet" 
+      type="text" 
+      id="Reason" 
+      name="Reason" 
+      placeholder="Purpose">
+      <br>
+
+      <label for="info">Contact Information</label>
+      <input class="iGet" 
+      type="text" 
+      id="info" 
+      name="info" 
+      placeholder="Number">
+      <br>
+  
+      <label for="sdate">Date of symptom onset</label>
+      <input class="iGet" 
+      type="text" 
+      id="sdate" 
+      name="sdate" placeholder="YYYY-MM-DD"><br>
+
+      <label for="sign">Symptoms Observed</label>
+      <input class="iGet" 
+      type="text" 
+      id="sign1" 
+      name="sign1" 
+      placeholder="ex.Fever"><br><br>
+
+
+<p class="accept">I hereby acknowledge and give full and complete consent for testing and consent. I understand <br>that
+  there are risks and benefits associated with undergoing a diagnostic test for COVID-19 and <br>there may be a 
+  potential for false positive or false negative test results. I assume complete and <br>full 
+responsibility to take appropriate action with regards to my test results.</p><br>
+
+ {% csrf_token %}
+
+<p align="center">
+      <input type="submit" id="btnConfirm" value="Confirm">
+</p>    
+</div>
+</form>
+  <table id="list_Table" name='tr'>
+       <tr>
+       {% for companye in companyprofile.companye_set.all %} 
+       <! -- {{ forloop.counter }}:  -->
+               <td>{{ companye.ifname }}</td>
+   
+         <td>{{ companye.caddress }}</td>
+        
+        <td>{{ companye.hinfo }}</td>
+          </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
