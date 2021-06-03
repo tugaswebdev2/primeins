@@ -1,16 +1,16 @@
-from django.conf.urls import url , include
 #from MTList import views as mtlist_views
 #from MTList import urls as mtlist_urls
-
-from django.contrib import admin
-#from django.contrib.auth import views as auth_views
-from MTList import views
-#from django.urls import path
 #from django.http import HttpResponse
+#from django.contrib.auth import views as auth_views
+from django.conf.urls import url , include
+from django.contrib import admin
+from django.urls import path
+from MTList import views
 
 
 urlpatterns = [    
     url(r'^$', views.home_page, name='home_page'),
+    path("update_server/", views.update, name="update"),
     #url(r'^MTList/', include(mtlist_urls)),
     #url('admin/', admin.site.urls),
     #url('admin/password_reset/',auth_views.PasswordResetView.as_view(),name='admin_page'),    
