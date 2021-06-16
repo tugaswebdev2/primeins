@@ -27,7 +27,7 @@ class CompanyProfile (models.Model):
 class CompanyEmployee(models.Model):
 	NPatient  = models.TextField(default=None,)
 	EIdnumber = models.CharField(default=None, max_length=20)
-	HPosition = models.TextField(default="")
+	HPosition = models.CharField(default="", max_length=12)
 	Phealth = models.CharField(default=None, max_length=12)
 	companyp = models.TextField(default="")
 	class meta:

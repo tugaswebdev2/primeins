@@ -5,14 +5,14 @@ import git
 from django.views.decorators.csrf import csrf_exempt
 
 
-@csrf_exempt
+'''@csrf_exempt
 def update(request):
     if request.method == "POST":
-        '''
+  
         pass the path of the diectory where your project will be 
         stored on PythonAnywhere in the git.Repo() as parameter.
         Here the name of my directory is "test.pythonanywhere.com"
-        '''
+       
         repo = git.Repo("test.pythonanywhere.com/") 
         origin = repo.remotes.origin
 
@@ -21,7 +21,8 @@ def update(request):
         return HttpResponse("Updated code on PythonAnywhere")
     else:
         return HttpResponse("Couldn't update the code on PythonAnywhere")
-        
+'''  
+
 def home_page(request):
     companyemployee = CompanyEmployee.objects.all()
     return render(request, 'homepage.html',{'companyemployee' : companyemployee})
@@ -32,7 +33,7 @@ def view_list(request, companyprofile_id):
 
 def create_list(request):
     companyprofile_ = CompanyProfile.objects.create()  
-    CompanyProfile.objects.create()
+#    CompanyProfile.objects.create()
     return redirect(f'/MTList/{companyprofile_.id}/')
 
 def new_item(request,companyprofile_id):
@@ -40,6 +41,21 @@ def new_item(request,companyprofile_id):
     CompanyEmployee.objects.create()
     return redirect(f'/MTList/{companyprofile_.id}/')
 '''firstmodel'''
+def employed(request):
+    #companyemployee = CompanyEmployee.objects.all()
+    return render(request, 'employees.html')
+
+def appointed(request):
+    #companyemployee = CompanyEmployee.objects.all()
+    return render(request, 'appointment.html')
+
+def abouts(request):
+    #companyemployee = CompanyEmployee.objects.all()
+    return render(request, 'about.html')
+
+def formed(request):
+    #companyemployee = CompanyEmployee.objects.all()
+    return render(request, 'form.html')
 
 def CEmployeedata(request):
     companyp = CompanyProfile(CName="The Hunger Games Company", CAddress="blk 123 lot 456 Sta.Lucia", TNumber="4598562388", Emailemp="hunger@gmail.com")
@@ -48,7 +64,7 @@ def CEmployeedata(request):
     companyp = CompanyProfile.objects.all()
     result = 'Printing all CompanyProfile : <br>'
     for x in companyp:
-    	res += x.CName+"<br>"
+        res += x.CName+"<br>"
 
     ccompanyp = CompanyProfile.objects.get(id="1")
     res += 'Printing One Entry <br>'
@@ -71,4 +87,4 @@ def CEmployeedata(request):
 
     cps = CompanyProfile.objects.order_by(CAddress)
     for x in cps:
-    	res += x.CName + x.CAddress +'<br>'
+        res += x.CName + x.CAddress +'<br>'

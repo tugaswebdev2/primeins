@@ -1,146 +1,130 @@
-<html>
+{% load static %}
 <header>
-    <title>ECT Application</title>
+    <title>Prime Intellicare</title>
 <style>
 
-    body {
-        background-color: #F3EBF6;
-        font-family: 'Ubuntu', sans-serif;
-    }
-    .top {
-        margin-top: 250px;
-        color: #8C55AA;
-    }
-    .main {
-        background-color: #FFFFFF;
-        width: 400px;
-        height: 400px;
-        margin: 7em auto;
-        border-radius: 1.5em;
-        box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
-    }
-    
-    .sign {
-        padding-top: 40px;
-        color: #8C55AA;
-        font-family: 'Ubuntu', sans-serif;
-        font-weight: bold;
-        font-size: 23px;
-    }
-    
-    .fname {
-    width: 76%;
-    color: rgb(38, 50, 56);
-    font-weight: 700;
-    font-size: 14px;
-    letter-spacing: 1px;
-    background: rgba(136, 126, 126, 0.04);
-    padding: 10px 20px;
-    border: none;
-    border-radius: 20px;
-    outline: none;
-    box-sizing: border-box;
-    border: 2px solid rgba(0, 0, 0, 0.02);
-    margin-bottom: 50px;
-    margin-left: 46px;
-    text-align: center;
-    margin-bottom: 27px;
-    font-family: 'Ubuntu', sans-serif;
-    }
-    
-    form.form1 {
-        padding-top: 40px;
-    }
-    
-    .depname {
-    width: 76%;
-    color: rgb(38, 50, 56);
-    font-weight: 700;
-    font-size: 14px;
-    letter-spacing: 1px;
-    background: rgba(136, 126, 126, 0.04);
-    padding: 10px 20px;
-    border: none;
-    border-radius: 20px;
-    outline: none;
-    box-sizing: border-box;
-    border: 2px solid rgba(0, 0, 0, 0.02);
-    margin-bottom: 50px;
-    margin-left: 46px;
-    text-align: center;
-    margin-bottom: 27px;
-    font-family: 'Ubuntu', sans-serif;
-    }
-    
-   
-    .user:focus, .pass:focus {
-        border: 2px solid rgba(0, 0, 0, 0.18) !important;
-        
-    }
-    
-    .submit {
-      cursor: pointer;
-        border-radius: 5em;
-        color: #fff;
-        background: linear-gradient(to right, #9C27B0, #E040FB);
-        border: 0;
-        padding-left: 40px;
-        padding-right: 40px;
-        padding-bottom: 10px;
-        padding-top: 10px;
-        font-family: 'Ubuntu', sans-serif;
-        margin-left: 35%;
-        font-size: 13px;
-        box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
-    }
-    
-    button {
-        text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
-        color: #E1BEE7;
-        text-decoration: none
-    }
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
+body {
+  margin: 0;
+  padding: 0;
   width: 100%;
+  height: auto;
+  background-position: center;
 }
-
-td, th {
-  border: 1px solid #dddddd;
+.bg{
+    background-size: 100% 850px;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-attachment: fixed;
+    background-image: url('{% static "/img/pexel.jpg"%}');
+}
+.top {
+  color: #FFFFFF;
+  position: left;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 30px;
   text-align: left;
-  padding: 8px;
+  margin-left: 40px; 
+  padding: 0;
+  margin-bottom: 0;
+  margin-top: 120px;
+}
+.subtop{
+  color: #357EC7;
+  position: left;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 90px;
+  text-align: left;
+  margin-left: 40px;
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: 100px;
+}
+.bottom {
+  color: #FFFFFF;
+  position: left;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 20px;
+  text-align: left;
+  margin-left: 40px; 
+  padding: 0;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+.sign{
+  color: #FFFFFF;
+  position: left;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 20px;
+  text-align: left;
+  margin-left: 40px; 
+  padding: 0;
+  margin-bottom: 10px;
+  margin-top: 20px;
+  font-style: italic;
+}
+.fname{
+  width: 170px;
+  padding: 9px 10px;
+  border-radius: 12px;
+  box-sizing: border-box;
+  margin-left: 40px;
+  outline: none;
+  text-align: center;
 }
 
-tr:nth-child(even) {
-  background-color: #dddddd;
+.fname[type=text]:focus {
+  background-color: lightblue;
 }
-    
-    @media (max-width: 600px) {
-        .main {
-            border-radius: 0px;
-        }
-</style>
+.depname{
+  width: 170px;
+  padding: 9px 10px;
+  border-radius: 12px;
+  box-sizing: border-box;
+  border: 1px solid #555;
+  outline: none;
+  text-align: center;
+}
+
+.depname[type=text]:focus {
+  background-color: lightblue;
+}
+.submit{
+  width: 100px;
+  padding: 5px 10px;
+  border-radius: 12px;
+  box-sizing: border-box;
+  border: 1px solid #555;
+  outline: none;
+  margin-bottom: 150px;
+}
+
+
+</style> 
 </header>
-<body>
 
-    <h1 class="top" align="center">Welcome to ECT Application!</h1>
-    <p align="center">"If you listen to your body when it whispers, you won’t have to hear it scream.<br>
-        Create healthy habits, not restrictions.</p>
+<body id="bg" class="bg">
+    <h1 class="top" >Hi! Welcome to,</h1>
+    <h2 class="subtop">Prime Intellicare</h2>
+    <p class="bottom" align="center">Your Intelligent Health Choice<br>
+        Gain access to intellicare's nationwide network of hospitals and clinics.</p>
   <div class="main">
   <form 
     method="POST" 
     action="/MTList/new">
 
     <p class="sign" 
-    align="center">Get Tested Now!</p>
+    align="center">Let's get started!</p>
 
       <input 
       id="fname" 
       class="fname"
       name="fname" 
       type="text" 
-      align="center" 
+      margin-left="20px"
       placeholder="Full Name">
 
       <input 
@@ -160,6 +144,7 @@ tr:nth-child(even) {
     </div>
      {% csrf_token %}
  </form>
+ 
   {% for companye in companyprofile_ %}
 
     <table id="list_Table" name="tr">
@@ -174,4 +159,3 @@ tr:nth-child(even) {
          {% endfor %}
     </table>
 </body>
-</html>

@@ -1,128 +1,438 @@
+{% load static %}
+<!DOCTYPE html>
+
 <html>
 <head>
-  <title>ECT Application</title>
-</head>
+    <title>Prime Intellicare</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
 <style>
-    body {
-        background-color: #F3EBF6;
-        font-family: 'Ubuntu', sans-serif;
-    }
-    .top {
-        margin-top: 100px;
-        color: #8C55AA;
-    }
-    .box {
-        width:  955px;
-        height: 100%;
-        margin: 7em auto;
-        border-radius: .5em;
-  
-    }
-    .consent {
-        padding-top: 40px;
-        color: #8C55AA;
-        font-weight: bold;
-        font-size: 23px;
-    }
 
-    .iGet{
-    
-    background-color: #FFFFFF;
-    width: 90%;
-    color: rgb(38, 50, 56);
-    font-weight: 700;
-    font-size: 14px;
-    letter-spacing: 1px;
-    padding: 10px 5px;
-    border: none;
-    border-radius: 20px;
-    outline: none;
-    box-sizing: border-box;
-    border: 2px solid rgba(0, 0, 0, .10);
-    margin-bottom: 50px;
-    margin-left: 50px;
-    margin-right: 40px;
-    text-align: center;
-    margin-bottom: 27px;
-    font-family: 'Ubuntu', sans-serif;
-        }
-
-    .marg{
-    font-weight: 700;
-    font-size: 14px;
-    letter-spacing: 1px;
-    }
-    .accept{
-      text-indent: 50px;
+nav {
+  margin: 0;
+  font-family: 'Ubuntu', sans-serif;
+}
+.topnav {
+  overflow: hidden;
+  background-color: #3E464D;
+}
+.topnav a {
+  float: left;
+  display: block;
+  color: #FFFFFF ;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+.topnav a:hover {
+  background-color: #323D46;
+  color: #FFFFFF;
+}
+.topnav a.active {
+  background-color: #14222D;
+  color: white;
+}
+.topnav .icon {
+  display: none;
 }
 
+.our_services_area {
+  background: #F5FBFF;
+  padding-top: 0px;
+  padding-bottom: 90px;
+  float: right;
+  margin-right: 0;
+  width: 100%;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+.col-4,  .col-auto, .col-lg, .col-lg-4, .col-lg-auto, .col-md, .col-md-4,.col-md-auto, .col-sm, .col-sm-1, .col-sm-4,.col-sm-auto, .col-xl, .col-xl-4, .col-xl-auto {
+    position: relative;
+    width: 29%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.col-xl-12{
+  text-align: center;
+  font-size: 20px;
+  font-family: 'Ubuntu', sans-serif;
+  margin-left: 350px;
+
+}
+.our_services_area .single_services {
+  background: #fff;
+  margin-bottom: 30px;
+  -webkit-box-shadow: 0 6px 10px rgba(0, 0, 0, 0.04);
+  -moz-box-shadow: 0 6px 10px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.04);
+}
+.our_services_area .single_services .services_thumb {
+  overflow: hidden;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.our_services_area .single_services .services_thumb img {
+  width: 100%;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+    vertical-align: middle;
+    border-style: none;
+}
+.our_services_area .single_services .services_content {
+  padding: 12px 20px 14px 20px;
+}
+.our_services_area .single_services .services_content h3 {
+  margin-bottom: 0;
+}
+.our_services_area .single_services .services_content h3 a {
+  font-size: 22px;
+  color: #1F1F1F;
+  line-height: 33px;
+  font-weight: 500;
+}
+.our_services_area .single_services .services_content h3 a:hover {
+  color: #5DB2FF;
+}
+.our_services_area .single_services .services_content p {
+  font-size: 16px;
+  line-height: 28px;
+  color: #727272;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.our_services_area .single_services .services_content a.learn_more {
+  color: #5DB2FF;
+  font-size: 16px;
+}
+.our_services_area .single_services .services_content a.learn_more:hover {
+  text-decoration: underline;
+}
+
+.our_services_area .single_services:hover .services_thumb img {
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+}
+#regForm {
+  background-color: #ffffff;
+  margin: 100px auto;
+  font-family: Raleway;
+  padding: 40px;
+  width: 70%;
+  min-width: 300px;
+}
+
+h1 {
+  text-align: center;  
+}
+
+input {
+  padding: 10px;
+  width: 100%;
+  font-size: 17px;
+  font-family: Raleway;
+  border: 1px solid #aaaaaa;
+}
+
+/* Mark input boxes that gets an error on validation: */
+input.invalid {
+  background-color: #ffdddd;
+}
+
+/* Hide all steps by default: */
+.tab {
+  display: none;
+}
+
+button {
+  background-color: #04AA6D;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 17px;
+  font-family: Raleway;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+#prevBtn {
+  background-color: #bbbbbb;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbbbbb;
+  border: none;  
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+.step.active {
+  opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  background-color: #04AA6D;
+}
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child) {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
 </style>
+<nav>
+
+  <div class="topnav">
+  <a> PrimeIntelliCare</a>
+  <a class="active" href="/formed">Sevices</a>
+  <a href="/employed">Forms</a>
+  <a href="/appointed">Appointment</a>
+  <a href="/abouts">About</a>
+</nav>
 
 <body>
-      <h1 class="top" align="center" >Welcome to ECT Application! </h1>
-      <p align="center"> "As we continue to serve and provide service to all our customers, our main goal is to make every employee fit and healthy on working. <br> We provide support and help everyones need to make sure we are all safe and CoVid free"
-
-  <div class="box"> 
-
-  <form class="iGet" 
-  text-align="left" 
-  method="POST" 
+ <div class="our_services_area">
+    <div class="container">
+      <div class="row">
+       <div class="col-xl-12">
+        <div class="section_title text-center mb-55">
+         <h3  >Our Services</h3>
+       <p>Our other operations help us create more ways to bring you diverse<br>
+          and innovative products that suit your needs. </p>
+</div>
+</div>
+</div>
+      <div class="row">
+       <div class="col-xl-4 col-md-6 col-lg-4">
+         <div class="single_services">
+          <div class="services_thumb">
+      <img src='{% static "/img/oo.png"%}'>
+</div>
+      <div class="services_content">
+       <h3><a href="#">Eye Care</a></h3>
+         <p>At eyecarecenter, we don’t just want to take care of your eyes – we want to take care of you, too.</p>
+           <a href="#" class="learn_more">Learn More</a>
+</div>
+</div>
+</div>
+      <div class="col-xl-4 col-md-6 col-lg-4">
+         <div class="single_services">
+            <div class="services_thumb">
+              <img src='{% static "/img/pp.png"%}'>
+</div>
+      <div class="services_content">
+      <h3><a href="#">Physical Examination</a></h3>
+      <p>We delivers head-to-toe and systems-based physical examination techniques for the Assessment or Introduction to Clinical Medicine course.</p>
+      <a href="#" class="learn_more">Learn More</a>
+</div>
+</div>
+</div>
+<div class="col-xl-4 col-md-6 col-lg-4">
+      <div class="single_services">
+      <div class="services_thumb">
+      <img src='{% static "/img/ii.png"%}'>
+</div>
+      <div class="services_content">
+        <h3><a href="#">Dental Care</a></h3>
+          <p>As a policy we aim to provide all of our patients with the highest standards of care possible. To add a human touch to our services we will take time to listen to your concerns and offer you with treatment options while educating on the procedures involved.</p>
+         <a href="#" class="learn_more">Learn More</a>
+</div>
+</div>
+</div>
+    <div class="col-xl-4 col-md-6 col-lg-4">
+     <div class="single_services">
+       <div class="services_thumb">
+         <img src='{% static "/img/tt.png"%}'>
+</div>
+<div class="services_content">
+      <h3><a href="#">Diagnostic Test</a></h3>
+         <p>We serve our patients with utmost care and compassion as we cater to their diagnostic needs.</p>
+            <a href="#" class="learn_more">Learn More</a>
+</div>
+</div>
+</div>
+<div class="col-xl-4 col-md-6 col-lg-4">
+      <div class="single_services">
+          <div class="services_thumb">
+            <img src='{% static "/img/13.jpg"%}'>
+</div>
+      <div class="services_content">
+          <h3><a href="#">In & Out-Patient Services</a></h3>
+          <p>We continuously develop practical and innovative ways to enhance the diagnostic health care system that aims to improve the well-being of our patient</p>
+      <a href="#" class="learn_more">Learn More</a>
+</div>
+</div>
+</div>
+<div class="col-xl-4 col-md-6 col-lg-4">
+      <div class="single_services">
+        <div class="services_thumb">
+           <img src='{% static "/img/yy.png"%}'>
+               </div>
+<div class="services_content">
+      <h3><a href="#">Additional Benefits</a></h3>
+          <p>Happy and Healthy Employees. Employees who are offered health insurance through their employer are more productive all around and more able to focus on their work.</p>
+              <a href="#" class="learn_more">Learn More</a>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+  
+<form id="regForm" method="POST" 
   action="/MTList/{{ companyprofile.id }}/add_item">
 
-      <table id="ECT" name="tr">
-      <p class="consent" 
-      align="center"> COVID-19 Test Form</p><br><br> 
-
-      <label for="kaddress">Home Address</label>
-      <input 
-      class="iGet" 
-      type="text" 
-      id="kaddress" 
-      name="kaddress" 
-      placeholder="Complete Address"><br>
-    
-      <label for="Reason">Reason of request</label>
-      <input class="iGet" 
-      type="text" 
-      id="Reason" 
-      name="Reason" 
-      placeholder="Purpose">
-      <br>
-
-      <label for="info">Contact Information</label>
-      <input class="iGet" 
-      type="text" 
-      id="info" 
-      name="info" 
-      placeholder="Number">
-      <br>
-  
-      <label for="sdate">Date of symptom onset</label>
-      <input class="iGet" 
-      type="text" 
-      id="sdate" 
-      name="sdate" placeholder="YYYY-MM-DD"><br>
-
-      <label for="sign">Symptoms Observed</label>
-      <input class="iGet" 
-      type="text" 
-      id="sign1" 
-      name="sign1" 
-      placeholder="ex.Fever"><br><br>
-
-
-<p class="accept">I hereby acknowledge and give full and complete consent for testing and consent. I understand <br>that
-  there are risks and benefits associated with undergoing a diagnostic test for COVID-19 and <br>there may be a 
-  potential for false positive or false negative test results. I assume complete and <br>full 
-responsibility to take appropriate action with regards to my test results.</p><br>
-
- {% csrf_token %}
-
-<p align="center">
-      <input type="submit" id="btnConfirm" value="Confirm">
-</p>    
-</div>
+  <h1>Company Profile</h1>
+  <!-- One "tab" for each step in the form: -->
+  <div class="tab">Lets get you account started!
+    <p><input placeholder="Company Name" oninput="this.className = ''" name="fname"></p>
+    <p><input placeholder="Address" oninput="this.className = ''" name="lname"></p>
+  </div>
+  <div class="tab">Contact Info:
+    <p><input placeholder="E-mail..." oninput="this.className = ''" name="uname"></p>
+    <p><input placeholder="Phone..." oninput="this.className = ''" name="pword" type="tel"></p>
+  </div>
+  <div style="overflow:auto;">
+    <div style="float:right;">
+      <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+      <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+    </div>
+  </div>
+  <!-- Circles which indicates the steps of the form: -->
+  <div style="text-align:center;margin-top:40px;">
+    <span class="step"></span>
+    <span class="step"></span>
+  </div>
 </form>
+
+<script>
+var currentTab = 0; // Current tab is set to be the first tab (0)
+showTab(currentTab); // Display the current tab
+
+function showTab(n) {
+  // This function will display the specified tab of the form...
+  var x = document.getElementsByClassName("tab");
+  x[n].style.display = "block";
+  //... and fix the Previous/Next buttons:
+  if (n == 0) {
+    document.getElementById("prevBtn").style.display = "none";
+  } else {
+    document.getElementById("prevBtn").style.display = "inline";
+  }
+  if (n == (x.length - 1)) {
+    document.getElementById("nextBtn").innerHTML = "Submit";
+  } else {
+    document.getElementById("nextBtn").innerHTML = "Next";
+  }
+  //... and run a function that will display the correct step indicator:
+  fixStepIndicator(n)
+}
+
+function nextPrev(n) {
+  // This function will figure out which tab to display
+  var x = document.getElementsByClassName("tab");
+  // Exit the function if any field in the current tab is invalid:
+  if (n == 1 && !validateForm()) return false;
+  // Hide the current tab:
+  x[currentTab].style.display = "none";
+  // Increase or decrease the current tab by 1:
+  currentTab = currentTab + n;
+  // if you have reached the end of the form...
+  if (currentTab >= x.length) {
+    // ... the form gets submitted:
+    document.getElementById("regForm").submit();
+    return false;
+  }
+  // Otherwise, display the correct tab:
+  showTab(currentTab);
+}
+
+function validateForm() {
+  // This function deals with validation of the form fields
+  var x, y, i, valid = true;
+  x = document.getElementsByClassName("tab");
+  y = x[currentTab].getElementsByTagName("input");
+  // A loop that checks every input field in the current tab:
+  for (i = 0; i < y.length; i++) {
+    // If a field is empty...
+    if (y[i].value == "") {
+      // add an "invalid" class to the field:
+      y[i].className += " invalid";
+      // and set the current valid status to false
+      valid = false;
+    }
+  }
+  // If the valid status is true, mark the step as finished and valid:
+  if (valid) {
+    document.getElementsByClassName("step")[currentTab].className += " finish";
+  }
+  return valid; // return the valid status
+}
+
+function fixStepIndicator(n) {
+  // This function removes the "active" class of all steps...
+  var i, x = document.getElementsByClassName("step");
+  for (i = 0; i < x.length; i++) {
+    x[i].className = x[i].className.replace(" active", "");
+  }
+  //... and adds the "active" class on the current step:
+  x[n].className += " active";
+}
+</script>
   <table id="list_Table" name='tr'>
        <tr>
        {% for companye in companyprofile.companye_set.all %} 
