@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-#from django.http import HttpResponse
 from MTList.models import CompanyProfile, CompanyEmployee, MedicalOffers, MedicalHistoryRecord, Appointment
 import git
 from django.views.decorators.csrf import csrf_exempt
@@ -32,12 +31,11 @@ def view_list(request, companyprofile_id):
     return render(request, 'form.html', {'companyprofile': companyprofile_})
 
 def create_list(request):
-    companyprofile_ = CompanyProfile.objects.create()  
 #    CompanyProfile.objects.create()
     return redirect(f'/MTList/{companyprofile_.id}/')
 
 def new_item(request,companyprofile_id):
-    companyprofile_ = CompanyProfile.objects.get(id=companyprofile_id)
+#    companyprofile_ = CompanyProfile.objects.get(id=companyprofile_id)
     CompanyEmployee.objects.create()
     return redirect(f'/MTList/{companyprofile_.id}/')
 '''firstmodel'''
@@ -57,7 +55,7 @@ def formed(request):
     #companyemployee = CompanyEmployee.objects.all()
     return render(request, 'form.html')
 
-def CEmployeedata(request):
+'''def CEmployeedata(request):
     companyp = CompanyProfile(CName="The Hunger Games Company", CAddress="blk 123 lot 456 Sta.Lucia", TNumber="4598562388", Emailemp="hunger@gmail.com")
     companyp.save()
 
@@ -88,3 +86,4 @@ def CEmployeedata(request):
     cps = CompanyProfile.objects.order_by(CAddress)
     for x in cps:
         res += x.CName + x.CAddress +'<br>'
+'''

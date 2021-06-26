@@ -5,48 +5,117 @@
 <head>
     <title>Prime Intellicare</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,600;0,700;1,500&display=swap" rel="stylesheet">
+
+
+</head>
 <style>
 
-nav {
-  margin: 0;
-  font-family: 'Ubuntu', sans-serif;
+*{
+        margin: 0;
+        padding: 0;
 }
-.topnav {
-  overflow: hidden;
-  background-color: #3E464D;
+.header{
+    min-height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.1),#000000),url("https://images.pexels.com/photos/3825539/pexels-photo-3825539.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    background-position: center;
+    background-size: cover;
+    position: relative;
 }
-.topnav a {
-  float: left;
-  display: block;
-  color: #FFFFFF ;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
+nav{
+    display: flex;
+    padding: 2% 6%;
+    justify-content: space-between;
+    align-items: center;
 }
-.topnav a:hover {
-  background-color: #323D46;
-  color: #FFFFFF;
+nav a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    font-family: 'Poppins', sans-serif;
 }
-.topnav a.active {
-  background-color: #14222D;
-  color: white;
+nav img{
+    width: 50px;
 }
-.topnav .icon {
-  display: none;
+.nav-links{
+    flex: 1;
+    text-align: right;
+}
+.nav-links ul li {
+    list-style: none;
+    display: inline-block;
+    padding: 8px 12px;
+    position: relative;
+}
+.nav-links ul li a{ 
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    font-family: 'Poppins', sans-serif;
+}
+.nav-links ul li::after{ 
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: #f44336;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+.nav-links ul li:hover::after{ 
+    width: 100%;
 }
 
+.text h1{
+    color: #fff;
+    position: left;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 68px;
+    text-align: left;
+    margin-left: 60px;
+    padding: 0;
+    margin-bottom: 0;
+    margin-top: 65px;
+}
+.text p{
+    margin: 10px 0 40px;
+    color: #fff;
+    font-size: 17px;
+    text-align: left;
+    margin-left: 60px;
+}
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child) {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
 .our_services_area {
-  background: #F5FBFF;
   padding-top: 0px;
   padding-bottom: 90px;
   float: right;
   margin-right: 0;
   width: 100%;
   font-family: 'Roboto Condensed', sans-serif;
+  margin-left: 20px;
 }
 
 .container {
@@ -63,7 +132,8 @@ nav {
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     margin-right: -15px;
-    margin-left: -15px;
+    margin-left: 100px;
+    margin-top: 30px;
 }
 .col-4,  .col-auto, .col-lg, .col-lg-4, .col-lg-auto, .col-md, .col-md-4,.col-md-auto, .col-sm, .col-sm-1, .col-sm-4,.col-sm-auto, .col-xl, .col-xl-4, .col-xl-auto {
     position: relative;
@@ -143,13 +213,33 @@ nav {
   -ms-transform: scale(1.2);
   transform: scale(1.2);
 }
+.title2 {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    margin-top: 60px;
+}
+.title2 h4{
+    font-size: 36px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+}
+.title2 p{
+    color: #777;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 22px;
+    padding: 10px;
+    font-family: 'Poppins', sans-serif;
+}
 #regForm {
   background-color: #ffffff;
   margin: 100px auto;
   font-family: Raleway;
   padding: 40px;
-  width: 70%;
+  width: 50%;
   min-width: 300px;
+  box-sizing: border-box;
 }
 
 h1 {
@@ -162,26 +252,31 @@ input {
   font-size: 17px;
   font-family: Raleway;
   border: 1px solid #aaaaaa;
+  border-radius: 20px;
+  margin-bottom: 12px;
 }
 
 /* Mark input boxes that gets an error on validation: */
 input.invalid {
   background-color: #ffdddd;
+  border-radius: 20px;
 }
 
 /* Hide all steps by default: */
 .tab {
   display: none;
+  margin-bottom: 12px;
 }
 
 button {
-  background-color: #04AA6D;
-  color: #ffffff;
+  background-color: black;
+  color: #fff;
   border: none;
   padding: 10px 20px;
   font-size: 17px;
   font-family: Raleway;
   cursor: pointer;
+  border-radius: 15px;
 }
 
 button:hover {
@@ -212,47 +307,40 @@ button:hover {
 .step.finish {
   background-color: #04AA6D;
 }
-@media screen and (max-width: 600px) {
-  .topnav a:not(:first-child) {display: none;}
-  .topnav a.icon {
-    float: right;
-    display: block;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .topnav.responsive {position: relative;}
-  .topnav.responsive .icon {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-  .topnav.responsive a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
-}
 </style>
-<nav>
-
-  <div class="topnav">
-  <a> PrimeIntelliCare</a>
-  <a class="active" href="/formed">Sevices</a>
-  <a href="/employed">Forms</a>
-  <a href="/appointed">Appointment</a>
-  <a href="/abouts">About</a>
-</nav>
-
 <body>
- <div class="our_services_area">
+<section class="header">
+        <nav>
+            <img src="https://pngimg.com/uploads/heart/heart_PNG51318.png">
+            <a> PrimeIntelliCare</a>
+            <div class="nav-links">
+                <ul>
+                    <li> <a href="/formed">SERVICES </a></li>
+                    <li> <a href="/employed">FORMS </a></li>
+                    <li> <a href="/appointed">APPOINTMENT</a></li>
+                    <li> <a href="/abouts">ABOUT</a></li>
+
+                </ul>
+
+        </nav>
+        <div class="text">
+    <h1>Prime Intellicare</h1>
+    <p>In unpredictable times there’s no substitute for peace of mind. At Prime IntelliCare,<br>we offer different kinds of flexible, affordable health insurance policies <br>and services.We make it easy for you to find the <br>right one for you and your family.</p>
+</div>
+
+      </section>
+<section>
+    <div class="title2">
+        <h4 >Our Services</h4>
+       <p>Our operations help us create more ways to bring you diverse<br>
+          and innovative products that suit your needs. </p>
+    </div>
+     <div class="our_services_area">
     <div class="container">
       <div class="row">
        <div class="col-xl-12">
         <div class="section_title text-center mb-55">
-         <h3  >Our Services</h3>
-       <p>Our other operations help us create more ways to bring you diverse<br>
-          and innovative products that suit your needs. </p>
+
 </div>
 </div>
 </div>
@@ -260,91 +348,89 @@ button:hover {
        <div class="col-xl-4 col-md-6 col-lg-4">
          <div class="single_services">
           <div class="services_thumb">
-      <img src='{% static "/img/oo.png"%}'>
+      <img src="https://images.pexels.com/photos/7580252/pexels-photo-7580252.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
 </div>
       <div class="services_content">
        <h3><a href="#">Eye Care</a></h3>
-         <p>At eyecarecenter, we don’t just want to take care of your eyes – we want to take care of you, too.</p>
-           <a href="#" class="learn_more">Learn More</a>
+         <p>At eye care center, we don’t just want to take care of your eyes – we want to take care of you, too.</p>
 </div>
 </div>
 </div>
       <div class="col-xl-4 col-md-6 col-lg-4">
          <div class="single_services">
             <div class="services_thumb">
-              <img src='{% static "/img/pp.png"%}'>
+              <img src="https://images.pexels.com/photos/7659570/pexels-photo-7659570.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
 </div>
       <div class="services_content">
       <h3><a href="#">Physical Examination</a></h3>
-      <p>We delivers head-to-toe and systems-based physical examination techniques for the Assessment or Introduction to Clinical Medicine course.</p>
-      <a href="#" class="learn_more">Learn More</a>
+      <p>We delivers head-to-toe and systems-based physical examination techniques for the Assessment.</p>
 </div>
 </div>
 </div>
 <div class="col-xl-4 col-md-6 col-lg-4">
       <div class="single_services">
       <div class="services_thumb">
-      <img src='{% static "/img/ii.png"%}'>
+      <img src="https://images.pexels.com/photos/5434017/pexels-photo-5434017.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
 </div>
       <div class="services_content">
         <h3><a href="#">Dental Care</a></h3>
-          <p>As a policy we aim to provide all of our patients with the highest standards of care possible. To add a human touch to our services we will take time to listen to your concerns and offer you with treatment options while educating on the procedures involved.</p>
-         <a href="#" class="learn_more">Learn More</a>
+          <p>We aim to provide all of our patients with highest standards of care possible.Offer you with treatment & procedures involved.</p>
+
 </div>
 </div>
 </div>
     <div class="col-xl-4 col-md-6 col-lg-4">
      <div class="single_services">
        <div class="services_thumb">
-         <img src='{% static "/img/tt.png"%}'>
+         <img src="https://images.pexels.com/photos/7581074/pexels-photo-7581074.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
 </div>
 <div class="services_content">
       <h3><a href="#">Diagnostic Test</a></h3>
          <p>We serve our patients with utmost care and compassion as we cater to their diagnostic needs.</p>
-            <a href="#" class="learn_more">Learn More</a>
+
 </div>
 </div>
 </div>
 <div class="col-xl-4 col-md-6 col-lg-4">
       <div class="single_services">
           <div class="services_thumb">
-            <img src='{% static "/img/13.jpg"%}'>
+            <img src="https://images.pexels.com/photos/6129242/pexels-photo-6129242.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
 </div>
       <div class="services_content">
           <h3><a href="#">In & Out-Patient Services</a></h3>
-          <p>We continuously develop practical and innovative ways to enhance the diagnostic health care system that aims to improve the well-being of our patient</p>
-      <a href="#" class="learn_more">Learn More</a>
+          <p>We continuously develop practical and innovative ways in diagnostic health care system for our patient</p>
+
 </div>
 </div>
 </div>
 <div class="col-xl-4 col-md-6 col-lg-4">
       <div class="single_services">
         <div class="services_thumb">
-           <img src='{% static "/img/yy.png"%}'>
+           <img src="https://images.pexels.com/photos/1954524/pexels-photo-1954524.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
                </div>
 <div class="services_content">
       <h3><a href="#">Additional Benefits</a></h3>
-          <p>Happy and Healthy Employees. Employees who are offered health insurance through their employer are more productive all around and more able to focus on their work.</p>
-              <a href="#" class="learn_more">Learn More</a>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-  
-<form id="regForm" method="POST" 
-  action="/MTList/{{ companyprofile.id }}/add_item">
+          <p>Happy and Healthy Employees. Employees health insurance through their employer to be more productive & focus on their work.</p>
 
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+</section>
+<form id="regForm" method="POST"
+  action="/MTList/{{ companyprofile.id }}/add_item">
   <h1>Company Profile</h1>
-  <!-- One "tab" for each step in the form: -->
-  <div class="tab">Lets get you account started!
-    <p><input placeholder="Company Name" oninput="this.className = ''" name="fname"></p>
-    <p><input placeholder="Address" oninput="this.className = ''" name="lname"></p>
+
+  <div class="tab">
+    <p><input placeholder="Company Name" oninput="this.className = ''" name="CName"></p>
+    <p><input placeholder="Company Address" oninput="this.className = ''" name="CAddress"></p>
+    <p><input placeholder="Number of Employees" oninput="this.className = ''" name="TNumber"></p>
   </div>
   <div class="tab">Contact Info:
-    <p><input placeholder="E-mail..." oninput="this.className = ''" name="uname"></p>
-    <p><input placeholder="Phone..." oninput="this.className = ''" name="pword" type="tel"></p>
+    <p><input placeholder="E-mail" oninput="this.className = ''" name="Emailemp"></p>
+    <p><input placeholder="Phone" oninput="this.className = ''" name="TNumber"></p>
   </div>
   <div style="overflow:auto;">
     <div style="float:right;">
@@ -358,7 +444,6 @@ button:hover {
     <span class="step"></span>
   </div>
 </form>
-
 <script>
 var currentTab = 0; // Current tab is set to be the first tab (0)
 showTab(currentTab); // Display the current tab
@@ -433,17 +518,5 @@ function fixStepIndicator(n) {
   x[n].className += " active";
 }
 </script>
-  <table id="list_Table" name='tr'>
-       <tr>
-       {% for companye in companyprofile.companye_set.all %} 
-       <! -- {{ forloop.counter }}:  -->
-               <td>{{ companye.ifname }}</td>
-   
-         <td>{{ companye.caddress }}</td>
-        
-        <td>{{ companye.hinfo }}</td>
-          </tr>
-        {% endfor %}
-    </table>
 </body>
 </html>

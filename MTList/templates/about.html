@@ -5,43 +5,100 @@
 <head>
     <title>Prime Intellicare</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,600;0,700;1,500&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+</head>
 <style>
 
-nav {
-  margin: 0;
-  font-family: 'Ubuntu', sans-serif;
+*{
+        margin: 0;
+        padding: 0;
 }
-.topnav {
-  overflow: hidden;
-  background-color: #3E464D;
+.header{
+    min-height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.1),#000000),url("https://images.pexels.com/photos/5327648/pexels-photo-5327648.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    background-position: center;
+    background-size: cover;
+    position: relative;
 }
-.topnav a {
-  float: left;
-  display: block;
-  color: #FFFFFF ;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
+nav{
+    display: flex;
+    padding: 2% 6%;
+    justify-content: space-between;
+    align-items: center;
 }
-.topnav a:hover {
-  background-color: #323D46;
-  color: #FFFFFF;
+nav a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    font-family: 'Poppins', sans-serif;
 }
-.topnav a.active {
-  background-color: #14222D;
-  color: white;
+nav img{
+    width: 50px;
 }
-.topnav .icon {
-  display: none;
+.nav-links{
+    flex: 1;
+    text-align: right;
+}
+.nav-links ul li {
+    list-style: none;
+    display: inline-block;
+    padding: 8px 12px;
+    position: relative;
+}
+.nav-links ul li a{ 
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    font-family: 'Poppins', sans-serif;
+}
+.nav-links ul li::after{ 
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: #f44336;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+.nav-links ul li:hover::after{ 
+    width: 100%;
+}
+
+.text h1{
+    color: #fff;
+    position: left;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 68px;
+    text-align: left;
+    margin-left: 60px;
+    padding: 0;
+    margin-bottom: 0;
+    margin-top: 65px;
+}
+.text p{
+    margin: 10px 0 40px;
+    color: #fff;
+    font-size: 17px;
+    text-align: left;
+    margin-left: 60px;
+}
+@media (max-width: 700px){
+    .text h1{
+        font-size: 20px;
+    }
+    .nav-links ul li{
+        display: block;
+    }
 }
 .container {
     padding: 107px 0px 102px 0px !important;
@@ -92,7 +149,7 @@ nav {
     padding: 100px 15px;
 }
 .culture-section {
-    background: linear-gradient(rgba(0, 0, 0, 0.45),rgba(0, 0, 0, 0.45));
+    background-color: black;
 }
 .company-sections, .left-headquarter-section-img, .right-headquarter-section-img {
     text-align: center;
@@ -110,26 +167,6 @@ nav {
 .fa {
   font-size: 42px;
 }
-.btn-solodev-red-reversed {
-    background-color: #fff;
-    color: #d2282e;
-    -webkit-transition: all 0.3s ease;
-    transition: all 0.3s ease;
-    padding: 12px 35px;
-}
-.btn{
-    font-size: 18px !Important;
-}
-a:hover, a:focus {
-    text-decoration: none;
-}
-.ct-u-size19 {
- margin-top: 40px; 
-}
-a:hover {
-    color: #000;
-}
-
 .ct-u-paddingBottom100 {
   margin-top: 40px;
 }
@@ -138,17 +175,27 @@ a:hover {
   color: #fff;
 }
 </style>
-</head>
-<nav>
+<body>
+    <section class="header">
+        <nav>
+            <img src="https://pngimg.com/uploads/heart/heart_PNG51318.png">
+            <a> PrimeIntelliCare</a>
+            <div class="nav-links">
+                <ul>
+                    <li> <a href="/formed">SERVICES </a></li>
+                    <li> <a href="/employed">FORMS </a></li>
+                    <li> <a href="/appointed">APPOINTMENT</a></li>
+                    <li> <a href="/abouts">ABOUT</a></li>
 
-  <div class="topnav">
-  <a> PrimeIntelliCare</a>
-  <a href="/formed">Sevices</a>
-  <a href="/employed">Form</a>
-  <a href="/appointed">Appointment</a>
-  <a class="active" href="/abouts">About</a>
-</nav>
+                </ul>
 
+        </nav>
+<div class="text">
+    <h1>Prime Intellicare</h1>
+    <p>All our endeavors and aspirations shall constantly adhere to the highest level <br> of ethical and performance standards, guided by our company’s long-standing  <br>principles of integrity, fairness, honesty, hard work, and an enduring sense of humanity.</p>
+</div>
+
+</section>
   <section class="culture-section company-sections ct-u-paddingBoth100 paddingBothHalf noTopMobilePadding">
     <div class="container">
       <div class="row">
@@ -163,22 +210,22 @@ a:hover {
         <div class="col-xs-6 col-md-4">
           <div class="company-icons-white">
             <i class="fa fa-medkit" aria-hidden="true"></i>
-            <p>LOREM IPSUM</p>
-            <p class="company-icons-subtext hidden-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p>What can you get by having life insurance?</p>
+            <p class="company-icons-subtext hidden-xs">Are you planning to get married? Or buy a house? Or investing for your child’s college education? When you sign up for life insurance, all these goals are possible to achieve.</p>
           </div>
         </div>
         <div class="col-xs-6 col-md-4">
           <div class="company-icons-white">
             <i class="fa fa-money" aria-hidden="true"></i>
-            <p>DOLOR SIT AMET</p>
-            <p class="company-icons-subtext hidden-xs">Praesent sed libero vel ex maximus vulputate nec eu ligula.</p>
+            <p>You can start planning for retirement</p>
+            <p class="company-icons-subtext hidden-xs">At what age would you like to retire? In your 60’s, 50’s, 40’s, or perhaps sooner?  The earlier you sign up for insurance with investment plan, the earlier you can plan to retire. </p>
           </div>
         </div>
         <div class="col-xs-6 col-md-4">
           <div class="company-icons-white">
             <i class="fa fa-clock-o" aria-hidden="true"></i>
-            <p>SED TRISTIQUE</p>
-            <p class="company-icons-subtext hidden-xs">Vestibulum elementum nisi ut fermentum lobortis.</p>
+            <p>You can pay your debts</p>
+            <p class="company-icons-subtext hidden-xs">Dividends and payouts from your insurance plan can help you pay and manage your debts.</p>
           </div>
         </div>
       </div>
@@ -186,29 +233,26 @@ a:hover {
         <div class="col-xs-6 col-md-4">
           <div class="company-icons-white">
             <i class="fa fa-coffee" aria-hidden="true"></i>
-            <p>SEMPER IPSUM</p>
-            <p class="company-icons-subtext hidden-xs">Nullam bibendum felis non laoreet rutrum.</p>
+            <p>You can prepare for your health needs</p>
+            <p class="company-icons-subtext hidden-xs"> You can never tell when illness will strike you. So, it’s good to have ready funds for your health care needs because your savings may not be enough.</p>
           </div>
         </div>
         <div class="col-xs-6 col-md-4">
           <div class="company-icons-white">
             <i class="fa fa-gamepad" aria-hidden="true"></i>
-            <p>NEC MATTIS</p>
-            <p class="company-icons-subtext hidden-xs">Etiam diam mi, lacinia eu sapien in, dapibus sodales erat.</p>
+            <p>A lifetime gift for our loved ones</p>
+            <p class="company-icons-subtext hidden-xs">When you invest in a life insurance plan, you’re not just protecting yourself and what you’ve worked hard for - but you’re also protecting your family from financial worries.</p>
           </div>
         </div>
         <div class="col-xs-6 col-md-4">
           <div class="company-icons-white">
             <i class="fa fa-cutlery" aria-hidden="true"></i>
-            <p>CRAS MOLLIS</p>
-            <p class="company-icons-subtext hidden-xs">Etiam varius porttitor tellus et aliquet.</p>
+            <p>Our affiliates and partners</p>
+            <p class="company-icons-subtext hidden-xs">Our other operations help us create more ways to bring you diverse and innovative products that suit your needs.</p>
           </div>
         </div>
       </div>
-      <a class="ct-u-marginTop60 btn btn-solodev-red-reversed btn-fullWidth-sm ct-u-size19" href="/careers/">Ready to Learn More?</a>
     </div>
   </section>
- 
-   
-</main>
+</body>
 </html>

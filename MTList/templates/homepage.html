@@ -1,161 +1,278 @@
 {% load static %}
-<header>
+<!DOCTYPE html>
+
+<html>
+<head>
     <title>Prime Intellicare</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,600;0,700;1,500&display=swap" rel="stylesheet">
+
+</head>
 <style>
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+*{
+        margin: 0;
+        padding: 0;
+}
+.header{
+    min-height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.1),#000000),url("https://images.pexels.com/photos/5452232/pexels-photo-5452232.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+nav{
+    display: flex;
+    padding: 2% 6%;
+    justify-content: space-between;
+    align-items: center;
+}
+nav a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    font-family: 'Poppins', sans-serif;
+}
+nav img{
+    width: 50px;
+}
+.nav-links{
+    flex: 1;
+    text-align: right;
+}
+.nav-links ul li {
+    list-style: none;
+    display: inline-block;
+    padding: 8px 12px;
+    position: relative;
+}
+.nav-links ul li a{ 
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    font-family: 'Poppins', sans-serif;
+}
+.nav-links ul li::after{ 
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: #f44336;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+.nav-links ul li:hover::after{ 
+    width: 100%;
+}
 
-body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: auto;
-  background-position: center;
+.text h1{
+    color: #fff;
+    position: left;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 68px;
+    text-align: left;
+    margin-left: 60px;
+    padding: 0;
+    margin-bottom: 0;
+    margin-top: 65px;
 }
-.bg{
-    background-size: 100% 850px;
-    background-repeat: no-repeat;
-    background-position: top;
-    background-attachment: fixed;
-    background-image: url('{% static "/img/pexel.jpg"%}');
-}
-.top {
-  color: #FFFFFF;
-  position: left;
-  font-family: 'Ubuntu', sans-serif;
-  font-size: 30px;
-  text-align: left;
-  margin-left: 40px; 
-  padding: 0;
-  margin-bottom: 0;
-  margin-top: 120px;
-}
-.subtop{
-  color: #357EC7;
-  position: left;
-  font-family: 'Ubuntu', sans-serif;
-  font-size: 90px;
-  text-align: left;
-  margin-left: 40px;
-  padding: 0;
-  margin-top: 0;
-  margin-bottom: 0;
-  font-weight: 100px;
-}
-.bottom {
-  color: #FFFFFF;
-  position: left;
-  font-family: 'Ubuntu', sans-serif;
-  font-size: 20px;
-  text-align: left;
-  margin-left: 40px; 
-  padding: 0;
-  margin-bottom: 0;
-  margin-top: 0;
+.text p{
+    margin: 10px 0 40px;
+    color: #fff;
+    font-size: 17px;
+    text-align: left;
+    margin-left: 60px;
 }
 .sign{
   color: #FFFFFF;
   position: left;
   font-family: 'Ubuntu', sans-serif;
-  font-size: 20px;
+  font-size: 15px;
   text-align: left;
-  margin-left: 40px; 
+  margin-left: 60px;
   padding: 0;
   margin-bottom: 10px;
-  margin-top: 20px;
+  margin-top: 5px;
   font-style: italic;
 }
 .fname{
   width: 170px;
-  padding: 9px 10px;
+  padding: 5px 8px;
   border-radius: 12px;
+  border: 1px solid #555;
   box-sizing: border-box;
-  margin-left: 40px;
+  margin-left: 60px;
   outline: none;
   text-align: center;
+  background-color: transparent;
 }
 
 .fname[type=text]:focus {
-  background-color: lightblue;
+  background-color: white;
+  transition: 1s;
 }
 .depname{
   width: 170px;
-  padding: 9px 10px;
+  padding: 5px 8px;
   border-radius: 12px;
   box-sizing: border-box;
   border: 1px solid #555;
   outline: none;
   text-align: center;
+  background-color: transparent;
 }
 
 .depname[type=text]:focus {
-  background-color: lightblue;
+  background-color: white;
+  transition: 1s;
 }
 .submit{
-  width: 100px;
-  padding: 5px 10px;
-  border-radius: 12px;
-  box-sizing: border-box;
-  border: 1px solid #555;
-  outline: none;
-  margin-bottom: 150px;
+    width: 120px;
+    padding: 5px 8px;
+    border-radius: 12px;
+    box-sizing: border-box;
+    border: 1px solid #555;
+    outline: none;
+    margin-bottom: 150px;
+    color: #fff;
+    cursor: pointer;
+    background-color: transparent;
+
+}
+.submit:hover{
+    background-color: darkblue;
+    transition: 1s;
+}
+@media (max-width: 700px){
+    .text h1{
+        font-size: 20px;
+    }
+    .nav-links ul li{
+        display: block;
+    }
+}
+.department{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 100px;
+}
+h1{
+    font-size: 36px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+}
+p{
+    color: #777;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 22px;
+    padding: 10px;
+    font-family: 'Poppins', sans-serif;
+}
+.row{
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+.dep-column{
+    flex-basis: 50%;
+    background: #fff3f3;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    padding: 20px 12px;
+    box-sizing: border-box;
+}
+h3{
+    text-align: center;
+    font-weight: 600;
+    margin: 10px;
+}
+.dep-column:hover{
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.2);
+}
+@media(max-width: 700px){
+    .row{
+        flex-direction: column;
+    }
 }
 
 
-</style> 
-</header>
+</style>
+<body>
+    <section class="header">
+        <nav>
+            <img src="https://pngimg.com/uploads/heart/heart_PNG51318.png">
+            <a> PrimeIntelliCare</a>
+            <div class="nav-links">
+                <ul>
+                    <li> <a href="/formed">SERVICES </a></li>
+                    <li> <a href="/employed">FORMS </a></li>
+                    <li> <a href="/appointed">APPOINTMENT</a></li>
+                    <li> <a href="/abouts">ABOUT</a></li>
 
-<body id="bg" class="bg">
-    <h1 class="top" >Hi! Welcome to,</h1>
-    <h2 class="subtop">Prime Intellicare</h2>
-    <p class="bottom" align="center">Your Intelligent Health Choice<br>
-        Gain access to intellicare's nationwide network of hospitals and clinics.</p>
+                </ul>
+
+        </nav>
+<div class="text">
+    <h1>Prime Intellicare</h1>
+    <p>Your Intelligent Health Choice
+    Gain access to intellicare's nationwide<br> network of hospitals and clinics.</p>
+</div>
   <div class="main">
-  <form 
-    method="POST" 
-    action="/MTList/new">
+  <form
+    method="POST"
+    action="formed/">
 
-    <p class="sign" 
+    <p class="sign"
     align="center">Let's get started!</p>
 
-      <input 
-      id="fname" 
-      class="fname"
-      name="fname" 
-      type="text" 
-      margin-left="20px"
+      <input id="fname" class="fname" name="fname" type="text" margin-left="20px"
       placeholder="Full Name">
 
-      <input 
-      id="depname" 
-      class="depname" 
-      name="depname" 
-      type="text" 
-      align="center" 
+      <input id="depname" class="depname"  name="depname" type="text"  align="center"
       placeholder="Department">
 
-      <button 
-      type="submit" 
-      class="submit" 
-      id="btnContinue" 
-      name="btnContinue">Continue</button> <br>
-                
+      <button type="submit" class="submit"  id="btnContinue"  name="btnContinue">Continue</button> <br>
+
     </div>
      {% csrf_token %}
  </form>
- 
-  {% for companye in companyprofile_ %}
+    </section>
+<section class="department">
+    <h1>Our Care</h1>
+    <p>Have an Access to a Health Professional at any time</p>
+    <div class="row">
+        <div class="dep-column">
+        <h3>Inpatient</h3>
+        <p>Medical treatment administered to a patient whose condition requires treatment in a hospital and the patient is formally admitted to the facility by a doctor.</p>
+</div>
+        <div class="dep-column">
+        <h3>Outpatient</h3>
+        <p>An overnight hospital stay to the patient, and likely demands more healthcare resources—from hospital labor, to surgical supplies, medical equipment, beds, and food—than an outpatient procedure.</p>
+</div>
+        <div class="dep-column">
+        <h3>Emergency Medical Services</h3>
+        <p>A response and emergency medical care, involving multiple people and agencies. A comprehensive EMS system is ready every day for every kind of emergency.</p>
+    </div>
+ </div>
+</section>
+
+ {% for companye in companyprofile_ %}
 
     <table id="list_Table" name="tr">
         <tr>
-        
+
         <td>{{ companye.ifname }}</td>
-      
+
           <td>{{ companye.mdepname}}</td>
-    
-        
+
+
         </tr>
          {% endfor %}
     </table>
 </body>
+</html>
