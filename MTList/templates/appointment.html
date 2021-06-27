@@ -147,6 +147,7 @@ input {
   font-family: Raleway;
   border: 1px solid #aaaaaa;
   border-radius: 10px;
+  color: black;
 }
 
 /* Mark input boxes that gets an error on validation: */
@@ -213,6 +214,51 @@ button:hover {
   font-size: 17px;
   margin-bottom: 10px;
 }
+.department{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 100px;
+}
+h1{
+    font-size: 36px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+}
+p{
+    color: #777;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 22px;
+    padding: 10px;
+    font-family: 'Poppins', sans-serif;
+}
+.row{
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+.dep-column{
+    flex-basis: 50%;
+    background: #fff3f3;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    padding: 20px 12px;
+    box-sizing: border-box;
+}
+h3{
+    text-align: center;
+    font-weight: 600;
+    margin: 10px;
+}
+.dep-column:hover{
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.2);
+}
+@media(max-width: 700px){
+    .row{
+        flex-direction: column;
+    }
+}
 </style>
 <section class="header">
         <nav>
@@ -220,7 +266,7 @@ button:hover {
             <h4> PrimeIntelliCare</h4>
             <div class="nav-links">
                 <ul>
-                    <li> <a href="/formed">SERVICES </a></li>
+                  
                     <li> <a href="/employed">FORMS </a></li>
                     <li> <a href="/appointed">APPOINTMENT</a></li>
                     <li> <a href="/abouts">ABOUT</a></li>
@@ -252,7 +298,7 @@ button:hover {
   </div>
   <div class="tab">Appointment:
     <p><input type="text" placeholder="Patient Name" oninput="this.className = ''" name="companye"></p>
-    <p><input type="date" placeholder="Date of Birth" oninput="this.className = ''" name="DOBirth"></p>
+    <p><input type="Date" placeholder="Date of Birth" oninput="this.className = ''" name="DOBirth"></p>
     <p><input type="email" placeholder="Email" oninput="this.className = ''" name="Emailemp"></p>
     <p for="dname">Doctor Assigned</p>
     <select class="dname" id="DName" name="DName">
@@ -286,6 +332,8 @@ button:hover {
     <span class="step"></span>
   </div>
 </form>
+
+    </table>
 <script>
 var currentTab = 0; // Current tab is set to be the first tab (0)
 showTab(currentTab); // Display the current tab
@@ -361,8 +409,23 @@ function fixStepIndicator(n) {
 }
 </script>
 </section>
-<section>
-  
+<section class="department">
+    <h1>Our Care</h1>
+    <p>Have an Access to a Health Professional at any time</p>
+    <div class="row">
+        <div class="dep-column">
+        <h3>Inpatient</h3>
+        <p>Medical treatment administered to a patient whose condition requires treatment in a hospital and the patient is formally admitted to the facility by a doctor.</p>
+</div>
+        <div class="dep-column">
+        <h3>Outpatient</h3>
+        <p>An overnight hospital stay to the patient, and likely demands more healthcare resources—from hospital labor, to surgical supplies, medical equipment, beds, and food—than an outpatient procedure.</p>
+</div>
+        <div class="dep-column">
+        <h3>Emergency Medical Services</h3>
+        <p>A response and emergency medical care, involving multiple people and agencies. A comprehensive EMS system is ready every day for every kind of emergency.</p>
+    </div>
+ </div>
 </section>
 
 </html>

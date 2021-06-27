@@ -209,6 +209,25 @@ button:hover {
 .step.finish {
   background-color: #04AA6D;
 }
+table {
+  border-collapse: collapse;
+  border-radius: 1em;
+  overflow: hidden;
+  width: 100%;
+}
+
+th, td {
+  padding: 1em;
+  background: #ddd;
+  border-bottom: 2px solid white; 
+  text-align: center;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+tr:hover {background-color:#f5f5f5;}
 </style>
 <section class="header">
         <nav>
@@ -231,19 +250,20 @@ button:hover {
       </section>
 <section>
   <form id="regForm" method="POST"
-  action="/MTList/{{ companyprofile.id }}/add_item">
+  action="/{{companyprofile.id}}/add_item">
+
     <div class="title2">
         <h4 >Lets get your account set-up!</h4>
        <p>Our operations help us create more ways to bring you diverse<br>
           and innovative products that suit your needs. </p>
   </div>
   <div class="tab">
-    <p><input placeholder="Employee Name" oninput="this.className = ''" name="NPatient"></p>
-    <p><input placeholder="ID No." oninput="this.className = ''" name="EIdnumber"></p>
+    <p><input id="NPatientd" placeholder="Employee Name" oninput="this.className = ''" name="NPatientd"></p>
+    <p><input id="EIdnumberd" placeholder="ID No." oninput="this.className = ''" name="EIdnumberd"></p>
   </div>
   <div class="tab">
-    <p><input placeholder="Philhealth No." oninput="this.className = ''" name="Phealth"></p>
-    <p><input placeholder="Company Industry (eg. BPO , Banking Institution)" oninput="this.className = ''" name="companyp"></p>
+    <p><input id="Phealthd" placeholder="Philhealth No." oninput="this.className = ''" name="Phealthd"></p>
+    <p><input id="companypd" placeholder="Company Industry (eg. BPO , Banking Institution)" oninput="this.className = ''" name="companypd"></p>
   </div>
   <div style="overflow:auto;">
     <div style="float:right;">
@@ -256,7 +276,33 @@ button:hover {
     <span class="step"></span>
     <span class="step"></span>
   </div>
+{% csrf_token %}
+
+
+   <table id="list_Table" name="tr">
+    <h1 
+    style="margin-top: 100px; 
+    margin-bottom: 25px; 
+    font-family: 'Ubuntu', sans-serif;
+    color: black;">Registered Employees</h1>
+      
+
+      <tr>
+          <th>Name</th>
+          <th>ID number</th>
+
+       <tr> 
+{% for companyemployee in companyprofile.companyemployee_set.all %}
+
+        <td>{{ companyemployee.NPatient }}</td>
+        <td>{{ companyemployee.EIdnumber }}</td>
+
+        </tr>
+        </tr>
+         {% endfor %}
+    </table>
 </form>
+
 </section>
 <script>
 var currentTab = 0; // Current tab is set to be the first tab (0)

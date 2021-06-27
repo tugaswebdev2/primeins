@@ -20,7 +20,7 @@
 .header{
     min-height: 100vh;
     width: 100%;
-    background-image: linear-gradient(rgba(0,0,0,0.1),#000000),url("https://images.pexels.com/photos/3825539/pexels-photo-3825539.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    background-image: linear-gradient(rgba(0,0,0,0.1),#000000),url("https://images.pexels.com/photos/5452232/pexels-photo-5452232.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
     background-position: center;
     background-size: cover;
     position: relative;
@@ -77,7 +77,7 @@ nav img{
     text-align: left;
     margin-left: 60px;
     padding: 0;
-    margin-bottom: 0;
+    margin-bottom: 12px;
     margin-top: 65px;
 }
 .text p{
@@ -119,11 +119,11 @@ nav img{
 }
 
 .container {
-    width: 100%;
+    width: 90%;
     padding-right: 15px;
     padding-left: 15px;
     margin-right: auto;
-    margin-left: auto;
+    margin-left: 50px;
 }
 .row {
     display: -webkit-box;
@@ -307,6 +307,24 @@ button:hover {
 .step.finish {
   background-color: #04AA6D;
 }
+
+table {
+  border-collapse: collapse;
+  border-radius: 1em;
+  overflow: hidden;
+  width: 100%;
+}
+
+th, td {
+  padding: 1em;
+  background: #ddd;
+  border-bottom: 2px solid white; 
+  text-align: center;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
 </style>
 <body>
 <section class="header">
@@ -315,7 +333,7 @@ button:hover {
             <a> PrimeIntelliCare</a>
             <div class="nav-links">
                 <ul>
-                    <li> <a href="/formed">SERVICES </a></li>
+                    
                     <li> <a href="/employed">FORMS </a></li>
                     <li> <a href="/appointed">APPOINTMENT</a></li>
                     <li> <a href="/abouts">ABOUT</a></li>
@@ -420,17 +438,21 @@ button:hover {
     </div>
 </section>
 <form id="regForm" method="POST"
-  action="/MTList/{{ companyprofile.id }}/add_item">
-  <h1>Company Profile</h1>
+  action="/new">
+  <h1 style="margin-bottom: 20px;">Company Profile</h1>
 
   <div class="tab">
-    <p><input placeholder="Company Name" oninput="this.className = ''" name="CName"></p>
-    <p><input placeholder="Company Address" oninput="this.className = ''" name="CAddress"></p>
-    <p><input placeholder="Number of Employees" oninput="this.className = ''" name="TNumber"></p>
+    <p><input id="CNamed" placeholder="Company Name" oninput="this.className = ''" name="CNamed"></p>
+
+    <p><input id="CAddressd" placeholder="Company Address" oninput="this.className = ''" name="CAddressd"></p>
+
+    <p><input id="Nempd" placeholder="Number of Employees" oninput="this.className = ''" name="Nempd" ></p>
   </div>
   <div class="tab">Contact Info:
-    <p><input placeholder="E-mail" oninput="this.className = ''" name="Emailemp"></p>
-    <p><input placeholder="Phone" oninput="this.className = ''" name="TNumber"></p>
+    <p><input id="Emailempd" placeholder="E-mail" oninput="this.className = ''" name="Emailempd"></p>
+
+    <p><input id="TNumberd" placeholder="Phone" oninput="this.className = ''" name="TNumberd"></p>
+
   </div>
   <div style="overflow:auto;">
     <div style="float:right;">
@@ -443,6 +465,32 @@ button:hover {
     <span class="step"></span>
     <span class="step"></span>
   </div>
+
+{% csrf_token %}
+
+ {{companyprofile.CName}}
+
+    <table  id="list_Table" name="tr">
+    <h1 style="margin-top: 100px; margin-bottom: 25px;">Company Summary</h1>
+      <tr>
+          <th>Company Name</th>
+          <th>Location</th>
+          <th>No. of Employees</th>
+          <th colspan="2">Action</th>
+          
+
+           {% for companyprofile in companyprofiles %}
+        <tr>
+
+        <td>{{companyprofile.CName}}</td>
+        <td>{{companyprofile.CAddress}}</td>
+        <td>{{companyprofile.Nemp}}</td>
+        <td> <a href="edit/{{ companyprofile.id }}">Edit</a></td>
+        <td> <a href="delete/{{ companyprofile.id }}">Delete</a></td>
+        </tr>
+        </tr>
+         {% endfor %}
+    </table>
 </form>
 <script>
 var currentTab = 0; // Current tab is set to be the first tab (0)

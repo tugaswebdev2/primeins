@@ -19,13 +19,14 @@ DEPARTMENT_CHOICES = (
 class CompanyProfile (models.Model):
 	CName = models.TextField(default="")
 	CAddress = models.TextField(default="")
+	Nemp = models.IntegerField(default='')
 	Emailemp = models.CharField(default="", max_length=30)
 	TNumber = models.CharField(default="",max_length=20)
 
 	class meta:
 		db_table = "ccompanyprofile"
 
-class CompanyEmployee(models.Model):
+class Companyemployee(models.Model):
 	NPatient  = models.TextField(default=None, max_length=50)
 	EIdnumber = models.CharField(default=None, max_length=20)
 	Phealth = models.CharField(default=None, max_length=20)
@@ -35,7 +36,7 @@ class CompanyEmployee(models.Model):
 
 class MedicalOffers(models.Model):
 
-	companye = models.ForeignKey(CompanyEmployee ,default="",max_length=50, on_delete = models.CASCADE)
+	companyemployee = models.ForeignKey(Companyemployee ,default="",max_length=50, on_delete = models.CASCADE)
 	CNumber = models.CharField(default="",max_length=12)
 	DepartmentS = models.TextField(max_length=80, default="")
 	Services = models.CharField(max_length = 20, choices = DEPARTMENT_CHOICES, default ="")
@@ -45,7 +46,7 @@ class MedicalOffers(models.Model):
 		db_table = "servicesoffers"
 
 class MedicalHistoryRecord(models.Model):
-	companye = models.ForeignKey(CompanyEmployee, default="" , on_delete = models.CASCADE)
+	companyemployee = models.ForeignKey(Companyemployee, default="" , on_delete = models.CASCADE)
 
 	Allergies = models.TextField(max_length=100, default="")
 	MedicalConditions = models.TextField(default="")
@@ -60,7 +61,7 @@ class MedicalHistoryRecord(models.Model):
 		db_table = "medicalhistoryrecord"
 
 class Appointment(models.Model):
-	companye = models.ForeignKey(CompanyEmployee, default="", on_delete = models.CASCADE)
+	companyemployee = models.ForeignKey(Companyemployee, default="", on_delete = models.CASCADE)
 	DOBirth = models.CharField(default="", max_length=8)
 	Emailemp = models.CharField(default="", max_length=50)
 	DName = models.TextField(default="", max_length=30)

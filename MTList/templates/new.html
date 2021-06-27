@@ -1,0 +1,176 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Prime Intellicare</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,600;0,700;1,500&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+</head>
+<style>
+
+*{
+        margin: 0;
+        padding: 0;
+}
+.header{
+    min-height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.1),#000000),url("https://images.pexels.com/photos/5327648/pexels-photo-5327648.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+nav{
+    display: flex;
+    padding: 2% 6%;
+    justify-content: space-between;
+    align-items: center;
+}
+nav h4{
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    font-family: 'Poppins', sans-serif;
+}
+nav a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    font-family: 'Poppins', sans-serif;
+}
+nav img{
+    width: 50px;
+}
+.nav-links{
+    flex: 1;
+    text-align: right;
+}
+.nav-links ul li {
+    list-style: none;
+    display: inline-block;
+    padding: 8px 12px;
+    position: relative;
+}
+.nav-links ul li a{ 
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    font-family: 'Poppins', sans-serif;
+}
+.nav-links ul li::after{ 
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: #f44336;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+.nav-links ul li:hover::after{ 
+    width: 100%;
+}
+
+@media (max-width: 700px){
+    .text h1{
+        font-size: 20px;
+    }
+    .nav-links ul li{
+        display: block;
+    }
+}
+
+@media (min-width: 1630px)
+.container {
+    width: 1630px;
+}
+
+.main{
+    margin-left: 320px;
+    margin-top: 20px;
+    font-family: Raleway;
+    padding: 40px;
+    width: 50%;
+    min-width: 300px;
+    box-sizing: border-box;
+}
+input {
+    padding: 10px;
+    width: 100%;
+    font-size: 17px;
+    font-family: Raleway;
+    border: 1px solid #aaaaaa;
+    border-radius: 20px;
+    margin-bottom: 12px;
+    color: black;
+}
+label{
+    color: white;
+}
+button {
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid white;
+    padding: 10px 20px;
+    font-size: 17px;
+    font-family: Raleway;
+    cursor: pointer;
+    border-radius: 15px;
+
+}
+
+button:hover {
+  opacity: 0.8;
+}
+</style>
+<body>
+    <section class="header">
+        <nav>
+            <img src="https://pngimg.com/uploads/heart/heart_PNG51318.png">
+            <h4> PrimeIntelliCare</h4>
+            <div class="nav-links">
+                <ul>
+                    <li> <a href="/employed">FORMS </a></li>
+                    <li> <a href="/appointed">APPOINTMENT</a></li>
+                    <li> <a href="/abouts">ABOUT</a></li>
+
+                </ul>
+
+        </nav>
+
+<div class="main">
+  <form
+    method="POST"
+    action="update/{{companyprofiles.id}}">
+ {% csrf_token %}
+    
+    <label for="CPhone">COMPANY NO.</label>
+    <input type="text" name="CPhone" value="{{ companyprofiles.TNumber}}" required="required"/>
+
+    <label for="CEmail">COMPANY EMAIL</label>
+    <input type="text" name="CEmail" value="{{companyprofiles.Emailemp}}" required="required"/>
+
+    <label for="CNEmployee">NO. EMPLOYEES</label>
+    <input type="text" name="CNEmployee" value="{{companyprofiles.Nemp}}" required="required"/>
+
+    <label for="CCAddress">ADDRESS</label>
+    <input type="text" name="CCAddress" value="{{companyprofiles.CAddress}}" required="required"/>
+
+    <label for="CCName">COMPANY NAME</label>
+    <input type="text" name="CCName" value="{{companyprofiles.CName}}" required="required"/>
+
+    <button type="submit" class="submit"  id="btnContinue"  name="btnContinue">Continue</button> <br>
+ </form>
+</section>
+ 
+</body>
+</html>

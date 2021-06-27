@@ -1,43 +1,46 @@
 from django.shortcuts import render, redirect
-from MTList.models import CompanyProfile, CompanyEmployee, MedicalOffers, MedicalHistoryRecord, Appointment
-import git
+from MTList.models import CompanyProfile, Companyemployee, MedicalOffers, MedicalHistoryRecord, Appointment
+#import git
 from django.views.decorators.csrf import csrf_exempt
 
-
-'''@csrf_exempt
-def update(request):
-    if request.method == "POST":
-  
-        pass the path of the diectory where your project will be 
-        stored on PythonAnywhere in the git.Repo() as parameter.
-        Here the name of my directory is "test.pythonanywhere.com"
-       
-        repo = git.Repo("test.pythonanywhere.com/") 
-        origin = repo.remotes.origin
-
-        origin.pull()
-
-        return HttpResponse("Updated code on PythonAnywhere")
-    else:
-        return HttpResponse("Couldn't update the code on PythonAnywhere")
-'''  
-
 def home_page(request):
-    companyemployee = CompanyEmployee.objects.all()
-    return render(request, 'homepage.html',{'companyemployee' : companyemployee})
+    companyprofiles = CompanyProfile.objects.all()
+    return render(request, 'form.html',{'companyprofiles' : companyprofiles})
+
+def new_item(request):
+    companyprofiled_ = CompanyProfile.objects.create(CName=request.POST['CNamed'],CAddress=request.POST['CAddressd'],Nemp=request.POST['Nempd'],Emailemp=request.POST['Emailempd'],TNumber=request.POST['TNumberd'],)
+    return redirect(f'/{companyprofiled_.id}/view_list')
 
 def view_list(request, companyprofile_id):
     companyprofile_ = CompanyProfile.objects.get(id=companyprofile_id)
-    return render(request, 'form.html', {'companyprofile': companyprofile_})
+    return render(request, 'employees.html', {'companyprofile': companyprofile_})
 
-def create_list(request):
-#    CompanyProfile.objects.create()
-    return redirect(f'/MTList/{companyprofile_.id}/')
+def create_list(request, companyprofile_id):
+    companyprofile_ = CompanyProfile.objects.get(id=companyprofile_id)
+    Companyemployee.objects.create(NPatient=request.POST['NPatientd'],EIdnumber=request.POST['EIdnumberd'],Phealth=request.POST['Phealthd'], companyp=companyprofile_)
+    return redirect(f'/{companyprofile_.id}/view_list')
 
-def new_item(request,companyprofile_id):
-#    companyprofile_ = CompanyProfile.objects.get(id=companyprofile_id)
-    CompanyEmployee.objects.create()
-    return redirect(f'/MTList/{companyprofile_.id}/')
+def edit(request, id):
+    companyprofiles = CompanyProfile.objects.get(id=id)
+    context = {'companyprofiles': companyprofiles}
+    return render(request, 'new.html', context)
+
+def update(request,id):
+    companyprofile = CompanyProfile.objects.get(id=id)
+    companyprofile.CName = request.POST['CCName']
+    companyprofile.CAddress = request.POST['CCAddress']
+    companyprofile.Nemp = request.POST['CNEmployee']
+    companyprofile.Emailemp = request.POST['CEmail']
+    companyprofile.TNumber = request.POST['CPhone']
+    companyprofile.save()
+    return redirect('/')
+
+def delete(request, id):
+    companyprofile = CompanyProfile.objects.get(id=id)
+    companyprofile.delete()
+    return redirect ('/')
+
+
 '''firstmodel'''
 def employed(request):
     #companyemployee = CompanyEmployee.objects.all()
@@ -87,3 +90,21 @@ def formed(request):
     for x in cps:
         res += x.CName + x.CAddress +'<br>'
 '''
+
+'''@csrf_exempt
+def update(request):
+    if request.method == "POST":
+  
+        pass the path of the diectory where your project will be 
+        stored on PythonAnywhere in the git.Repo() as parameter.
+        Here the name of my directory is "test.pythonanywhere.com"
+       
+        repo = git.Repo("test.pythonanywhere.com/") 
+        origin = repo.remotes.origin
+
+        origin.pull()
+
+        return HttpResponse("Updated code on PythonAnywhere")
+    else:
+        return HttpResponse("Couldn't update the code on PythonAnywhere")
+'''  
